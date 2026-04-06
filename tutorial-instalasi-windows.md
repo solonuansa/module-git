@@ -2,19 +2,19 @@
 
 Sebelum install Git di Windows, anda harus sudah mempunyai editor teks yang didukung oleh Windws. Editor yang bisa dipilih banyak, tetapi disarankan menggunakan [Notepad++](https://notepad-plus-plus.org/) atau [Visual Studion Code](https://code.visualstudio.com/) atau [Vim](https://www.vim.org/). Keberadaan editor teks ini akan menentukan keberhasilan instalasi (lihat langkah 5).
 
-1. Setelah download Git, double click pada file yang di-download. Akan dimunculkan lisensi. Klik **Next** untuk lanjut.
+1. Setelah *download* Git, *double click* pada *file* yang di-**download*. Akan dimunculkan lisensi. Klik **Next** untuk lanjut.
 
 ![01](images/01/install-01.jpg)
 
-2. Setelah itu, pilih lokasi instalasi. Secara default akan terisi *C:\Program Files\Git*. Ganti lokasi jika memang anda menginginkan lokasi lain, klik **Next**
+2. Setelah itu, pilih lokasi instalasi. Secara *default* akan terisi *C:\Program Files\Git*. Ganti lokasi jika memang anda menginginkan lokasi lain, klik **Next**.
 
 ![02](images/01/install-02.jpg)
 
-3. Pilih komponen. Tidak perlu diubah-ubah, sesuai dengan default saja. Klik pada **Next**.
+3. Pilih komponen. Tidak perlu diubah-ubah, sesuai dengan *default* saja. Klik pada **Next**.
 
 ![03](images/01/install-03.jpg)
 
-4. Mengisi shortcut untuk menu Start. Gunakan default (Git), ganti jika ingin mengganti - misalnya Git VCS.
+4. Mengisi *shortcut* untuk menu Start. Gunakan *default* (Git), ganti jika ingin mengganti - misalnya Git VCS.
 
 ![04](images/01/install-04.jpg)
 
@@ -30,15 +30,15 @@ Anda juga bisa menggunakan editor pilihan anda sendiri selain di daftar dengan m
 
 ![05-03](images/01/install-05-03.jpg)
 
-6. Setiap melakukan inisialisasi repo Git, suatu nama branch akan diberikan. Default nama adalah **master** tetapi umumnya sekarang diganti dengan **main**. Ubahlah konfigurasi tersebut:
+6. Setiap melakukan inisialisasi repo Git, suatu nama **branch** akan diberikan. *Default* nama adalah **master** tetapi umumnya sekarang diganti dengan **main**. Ubahlah konfigurasi tersebut:
 
 ![06](images/01/install-06.jpg)
 
-7. Pada saat instalasi, Git menyediakan akses git melalui Bash maupun command prompt. Pilih pilihan kedua supaya bisa menggunakan dari dua antarmuka tersebut. Bash adalah shell di Linux. Dengan menggunakan bash di Windows, pekerjaan di command line Windows bisa dilakukan menggunakan bash - termasuk ekskusi dari Git.
+7. Pada saat instalasi, Git menyediakan akses git melalui Bash maupun *command prompt*. Pilih pilihan kedua supaya bisa menggunakan dari dua antarmuka tersebut. Bash adalah shell di Linux. Penggunaan bash di Windows memungkinkan pekerjaan di command line Windows bisa dilakukan menggunakan bash - termasuk ekskusi dari Git.
 
 ![07](images/01/install-07.jpg)
 
-8. Pilih **native Windows Secure Channel library** HTTPS. Git menggunakan https untuk akes ke repo GitHub atau repo-repo lain (GitLab, Assembla).
+8. Pilih **native Windows Secure Channel library** HTTPS. Git menggunakan https untuk akses ke repo GitHub atau repo-repo lain (GitLab, Assembla).
 
 ![08](images/01/install-08.jpg)
 
@@ -50,7 +50,7 @@ Anda juga bisa menggunakan editor pilihan anda sendiri selain di daftar dengan m
 
 ![10](images/01/install-10.jpg)
 
-11. Tetapkan perilaku standar dari **git pull**. Pilih default saja yaitu **Fast-forward or merge**. Arti dari hal ini akan dipelajari pada proses pembelajaran lanjutan. 
+11. Tetapkan perilaku standar dari **git pull**. Pilih default saja yaitu **Fast-forward or merge**.
 
 ![11](images/01/install-11.jpg)
 
@@ -70,7 +70,7 @@ Anda juga bisa menggunakan editor pilihan anda sendiri selain di daftar dengan m
 
 ![015](images/01/install-15.jpg)
 
-16. Untuk mencoba dari command prompt, masuk ke command prompt, setelah itu jalankan "git" untuk melihat apakah sudah terinstall atau belum. Jika sudah terinstall dengan benar, makan akan muncul hasil berikut:
+16. Untuk mencoba dari *command prompt*, masuk ke *command prompt*, setelah itu jalankan "git" untuk melihat apakah sudah terinstall atau belum. Jika sudah terinstall dengan benar, makan akan muncul hasil berikut:
 
 ```bash
 C:\Program Files\Git\bin>git
@@ -132,11 +132,3 @@ git version 2.53.0.windows.1
 
 C:\Program Files\Git\bin>
 ```
-
-Jika anda sudah terbiasa menggunakan **winget**, instalasi bisa dilakukan secara cepat dari Powershell / command prompt dengan perintah:
-
-```bash
-winget install --id Git.Git -e --source winget
-```
-
-Hasilnya akan sama dengan langkah-langkah di atas jika memilih kondisi default.
