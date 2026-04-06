@@ -26,9 +26,9 @@
 
 ### Pengertian
 
-**Version Control System** adalah sistem yang merekam setiap perubahan pada file atau sekumpulan file dari waktu ke waktu sehingga kamu bisa kembali ke versi tertentu kapan pun kamu mau.
+**Version Control System** adalah sistem yang merekam setiap *update* pada file atau sekumpulan file dari waktu ke waktu sehingga *user* bisa kembali ke versi tertentu kapan pun kamu mau.
 
-Bayangkan kamu menulis tugas dan menyimpan file seperti ini:
+Misalnya, *user* menulis tugas dan menyimpan file seperti ini:
 
 ```
 tugas_v1.docx
@@ -37,7 +37,7 @@ tugas_v2_final_REVISI.docx
 tugas_v3_final_REVISI_beneran.docx
 ```
 
-Inilah masalah yang bisa dipecahkan oleh version control — cukup memiliki **satu file** dan sistemnya yang akan melacak semua perubahan.
+Inilah masalah yang bisa diselesaikan oleh version control dengan hanya memiliki **satu file** dan sistemnya yang akan melacak semua perubahan.
 
 ### Kegunaan Version Control
 
