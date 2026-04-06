@@ -52,3 +52,4 @@ Setelah instalasi berhasil, kita harus memperkenalkan diri pada Git agar setiap 
    ``` bash
     git config --list
    ```
+s
