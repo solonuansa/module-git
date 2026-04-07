@@ -123,13 +123,13 @@ Setelah akun dibuat, lengkapi profilmu:
 
 1. Buka **[education.github.com/pack](https://education.github.com/pack)**
 2. Klik **"Get student benefits"**
-3. Login dengan akun GitHub kamu
+3. Login dengan akun GitHub
 4. Pilih **"Student"**
-5. Masukkan **email institusi** kamu (misal: `nama@student.uns.ac.id`)
+5. Masukkan **email institusi** (misal: `namaku@student.uns.ac.id`)
 6. Upload **bukti status mahasiswa** (KTM, surat keterangan, atau transkrip)
 7. Tunggu verifikasi (biasanya 1–7 hari kerja)
 
-> **Tips:** Gunakan email kampus jika ada. Jika tidak, upload foto KTM yang jelas.
+> **Catatan:** Gunakan email kampus jika ada.
 
 ### Benefit Unggulan
 
@@ -217,11 +217,11 @@ Sebelum mulai bekerja, kita perlu mengatur identitas di Git. Informasi ini akan 
 ### Mengatur Nama dan Email
 
 ```cmd
-git config --global user.name "Nama Kamu"
-git config --global user.email "email@kamu.com"
+git config --global user.name "Username Github"
+git config --global user.email "emailmu@gmail.com"
 ```
 
-> Gunakan email yang sama dengan akun GitHub-mu.
+> Gunakan email yang sama dengan akun GitHub.
 
 ### Mengatur Default Branch Name
 
@@ -249,7 +249,7 @@ git config --global core.autocrlf true
 
 > Ini mencegah masalah perbedaan format baris antara Windows dan Linux/Mac.
 
-Jika kamu memakai macOS atau Linux, gunakan konfigurasi ini:
+Jika memakai macOS atau Linux, gunakan konfigurasi ini:
 
 ```bash
 git config --global core.autocrlf input
@@ -263,7 +263,7 @@ git config --list
 
 ### File Konfigurasi
 
-Konfigurasi global tersimpan di `C:\Users\NamaUser\.gitconfig`. Kamu bisa membukanya dengan:
+Konfigurasi global tersimpan di `C:\Users\NamaUser\.gitconfig`. Cara membukanya bisa dengan:
 
 ```cmd
 notepad C:\Users\%USERNAME%\.gitconfig
@@ -278,7 +278,7 @@ notepad C:\Users\%USERNAME%\.gitconfig
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    WORKING DIRECTORY                    │
-│         (File yang sedang kamu edit sekarang)           │
+│         (File yang sedang diedit sekarang)              │
 └──────────────────────┬──────────────────────────────────┘
                        │  git add
                        ▼
@@ -296,9 +296,9 @@ notepad C:\Users\%USERNAME%\.gitconfig
 
 | Area | Penjelasan |
 |---|---|
-| **Working Directory** | Folder proyekmu — tempat kamu membuat dan mengedit file |
-| **Staging Area** | "Antrian commit" — file yang sudah dipilih untuk disimpan |
-| **Repository** | Database Git — semua riwayat perubahan tersimpan di sini |
+| **Working Directory** | Folder proyek *user*, sebagai tempat *user* membuat dan mengedit file |
+| **Staging Area** | "Antrian commit", yaitu file yang sudah dipilih untuk disimpan |
+| **Repository** | Database Git, yaitu semua riwayat perubahan tersimpan di sini |
 
 ### Status File dalam Git
 
@@ -306,19 +306,19 @@ notepad C:\Users\%USERNAME%\.gitconfig
 Untracked → Tracked (Staged) → Committed → Modified → Staged → Committed
 ```
 
-- **Untracked** — File baru yang belum dikenal Git
-- **Staged** — File sudah ditambahkan ke staging area
-- **Committed** — File sudah tersimpan di repository
-- **Modified** — File yang sudah di-commit tapi ada perubahan baru
+- **Untracked** = File baru yang belum dikenal Git
+- **Staged** = File sudah ditambahkan ke staging area
+- **Committed** = File sudah tersimpan di repository
+- **Modified** = File yang sudah di-commit tapi ada perubahan baru
 
 ### Apa Itu Commit?
 
-**Commit** adalah snapshot (foto) dari seluruh proyekmu pada suatu titik waktu. Setiap commit memiliki:
-- **Hash unik** (misal: `a3f2c1d`) — pengenal commit
-- **Pesan** — deskripsi apa yang berubah
-- **Timestamp** — kapan commit dibuat
-- **Author** — siapa yang membuat commit
-- **Parent** — pointer ke commit sebelumnya
+**Commit** adalah snapshot (foto) dari seluruh proyek pada suatu titik waktu. Setiap commit memiliki:
+- **Hash unik** (misal: `a3f2c1d`), sebagai pengenal commit
+- **Pesan**, sebagai deskripsi apa yang berubah
+- **Timestamp**, detail kapan commit dibuat
+- **Author**, informasi siapa yang membuat commit
+- **Parent**, sebagai pointer ke commit sebelumnya
 
 ---
 
@@ -337,7 +337,7 @@ git init
 
 Output:
 ```
-Initialized empty Git repository in C:/Users/kamu/nama-proyek/.git/
+Initialized empty Git repository in C:/Users/Anda/nama-proyek/.git/
 ```
 
 ### Melihat Status Repository
@@ -365,18 +365,18 @@ git add *.py
 :: Commit dengan pesan singkat
 git commit -m "Pesan commit yang deskriptif"
 
-:: Contoh pesan commit yang baik
+:: Contoh pesan commit yang benar
 git commit -m "Add login feature with email validation"
 git commit -m "Fix bug: null pointer exception on user profile"
 git commit -m "Update README with installation instructions"
 ```
 
-> **Tips Pesan Commit:** Gunakan present tense dalam bahasa Inggris. Jelaskan **apa** yang berubah, bukan **bagaimana**.
+> **Tips Pesan Commit:** Gunakan *present tense* dalam bahasa Inggris. Jelaskan **apa** yang berubah, bukan **bagaimana**.
 
 ### Shortcut: Add + Commit Sekaligus
 
 ```cmd
-:: Hanya untuk file yang sudah pernah di-track sebelumnya
+:: Hanya untuk *file* yang sudah pernah di-*track* sebelumnya
 git commit -am "Pesan commit"
 ```
 
@@ -428,7 +428,7 @@ git log --oneline
 
 ### Apa Itu Remote?
 
-**Remote** adalah versi repository yang tersimpan di server (seperti GitHub). Ini memungkinkan kolaborasi dan backup kode.
+***Remote*** adalah versi repository yang tersimpan di server (seperti GitHub) yang memungkinkan kolaborasi dan *backup* kode.
 
 ### Membuat Repository di GitHub
 
@@ -476,25 +476,25 @@ gh auth login
 
 Ikuti instruksi di layar, pilih **GitHub.com** → **HTTPS** → **Login with a web browser**.
 
-### Perintah Remote Penting
+### Perintah *Remote* Penting
 
 ```cmd
-:: Clone repository dari GitHub ke lokal
+:: *Clone* repository dari GitHub ke lokal
 git clone https://github.com/username/nama-repo.git
 
-:: Clone ke folder dengan nama berbeda
+:: *Clone* ke folder dengan nama berbeda
 git clone https://github.com/username/nama-repo.git nama-folder-baru
 
-:: Pull (ambil perubahan terbaru dari remote)
+:: *Pull* (ambil perubahan terbaru dari *remote*)
 git pull origin main
 
-:: Push (kirim perubahan lokal ke remote)
+:: *Push* (kirim perubahan lokal ke *remote*)
 git push origin main
 
-:: Lihat semua remote
+:: Lihat semua *remote*
 git remote -v
 
-:: Hapus remote
+:: Hapus *remote*
 git remote remove origin
 ```
 
@@ -504,7 +504,7 @@ git remote remove origin
 :: Setiap mulai kerja — ambil perubahan terbaru
 git pull origin main
 
-:: ... kerjakan tugasmu ...
+:: ... kerjakan tugas hingga selesai ...
 
 :: Setelah selesai — kirim ke GitHub
 git add .
@@ -518,41 +518,41 @@ git push origin main
 
 ### Melihat Riwayat Perubahan
 
-Saat bekerja dengan Git, kamu perlu tahu cara melihat apa yang berubah, siapa yang mengubah, dan kapan perubahan itu dibuat. Perintah-perintah berikut paling sering dipakai:
+Saat bekerja dengan Git, *user* perlu tahu cara melihat apa yang berubah, siapa yang mengubah, dan kapan perubahan itu dibuat. Perintah-perintah berikut paling sering dipakai:
 
 ```cmd
-:: Lihat riwayat commit singkat
+:: Lihat riwayat *commit* singkat
 git log --oneline
 
-:: Lihat riwayat commit dalam bentuk grafik
+:: Lihat riwayat *commit* dalam bentuk grafik
 git log --oneline --graph --all
 
-:: Lihat perubahan yang belum di-staging
+:: Lihat perubahan yang belum di-*staging*
 git diff
 
-:: Lihat perubahan yang sudah di-staging
+:: Lihat perubahan yang sudah di-*staging*
 git diff --staged
 
-:: Lihat detail satu commit tertentu
+:: Lihat detail satu *commit* tertentu
 git show abc1234
 ```
 
-Gunakan `git diff` saat ingin mengecek isi perubahan sebelum commit, dan `git log` saat ingin menelusuri riwayat repository.
+Gunakan perintah `git diff` saat ingin mengecek isi perubahan sebelum *commit*, dan `git log` saat ingin menelusuri riwayat repository.
 
 ### Membatalkan Perubahan dengan Aman
 
-Cara membatalkan perubahan tergantung pada posisi perubahan tersebut: masih di working directory, sudah di-staging, atau sudah terlanjur menjadi commit.
+Cara membatalkan perubahan tergantung pada posisi perubahan tersebut: masih di working directory, sudah di-*staging*, maupun sudah terlanjur menjadi commit.
 
 ```cmd
 :: SEBELUM STAGING
 
-:: Batalkan perubahan pada file dan kembalikan ke versi commit terakhir
+:: Batalkan perubahan pada *file* dan kembalikan ke versi commit terakhir
 git restore nama-file.txt
 
 
-:: SETELAH STAGING, SEBELUM COMMIT
+:: LANGKAH SETELAH *STAGING*, SEBELUM *COMMIT*
 
-:: Keluarkan file dari staging, tetapi perubahan file tetap dipertahankan
+:: Keluarkan file dari *staging*, tetapi perubahan file tetap dipertahankan
 git restore --staged nama-file.txt
 
 
@@ -571,11 +571,11 @@ git reset --mixed HEAD~1
 git reset --hard HEAD~1
 ```
 
-> **Peringatan:** `git reset --hard` menghapus perubahan secara permanen. Hindari memakai perintah ini pada repository bersama atau pada commit yang sudah di-push, kecuali kamu benar-benar paham risikonya.
+> **Peringatan:** perintah `git reset --hard` **menghapus** perubahan secara **permanen**. Hindari memakai perintah ini pada repository bersama atau pada *commit* yang sudah di-*push*, kecuali benar-benar paham risikonya.
 
 ### Memperbaiki Commit Terakhir
 
-Jika kamu baru saja commit lalu sadar ada pesan yang salah atau ada file yang belum ikut, kamu bisa memperbaikinya tanpa membuat commit baru.
+Jika baru saja commit lalu sadar ada pesan yang salah atau ada file yang belum ikut, *user* bisa memperbaikinya tanpa membuat commit baru.
 
 ```cmd
 :: Ubah pesan commit terakhir
@@ -590,22 +590,22 @@ git commit --amend --no-edit
 
 ---
 
-## 11. Deployment dengan GitHub Pages
+## 11. *Deployment* dengan GitHub Pages
 
-### Mengapa Deployment Penting?
+### Mengapa *Deployment* Penting?
 
-Belajar Git akan terasa lebih utuh kalau hasil kerja tidak berhenti di laptop sendiri. Dengan deployment, repository yang kamu kelola bisa berubah menjadi website, dokumentasi, atau laporan analisis yang dapat diakses dosen, teman satu tim, dan publik.
+Belajar Git akan terasa lebih utuh kalau hasil kerja tidak berhenti di laptop sendiri. Dengan *deployment*, repository yang kamu kelola bisa berubah menjadi *website*, dokumentasi, atau laporan analisis yang dapat diakses dosen, teman satu tim, dan publik.
 
 Untuk kebutuhan perkuliahan dan proyek data, **GitHub Pages** adalah pilihan yang sangat praktis karena:
 
 - gratis
 - terhubung langsung dengan repository GitHub
-- cocok untuk website statis, dokumentasi, dan laporan analisis
-- cukup mudah untuk pemula, tetapi tetap relevan untuk workflow yang lebih profesional
+- cocok untuk *website* statis, dokumentasi, dan laporan analisis
+- cukup mudah untuk pemula, tetapi tetap relevan untuk *workflow* yang lebih profesional
 
 ### Apa Itu GitHub Pages?
 
-**GitHub Pages** adalah layanan hosting gratis dari GitHub untuk menayangkan website statis langsung dari repository.
+**GitHub Pages** adalah layanan *hosting* gratis dari GitHub untuk menayangkan *website* statis langsung dari repository.
 
 Contoh URL yang dihasilkan:
 
@@ -624,26 +624,26 @@ Jenis GitHub Pages yang paling umum:
 
 | Kebutuhan | Pendekatan | Cocok Untuk |
 |---|---|---|
-| Website HTML/CSS/JS sederhana | Publish dari branch `main` ke `/root` atau `/docs` | Pemula |
-| Laporan `R Markdown` satu halaman | Render lokal ke folder `docs/`, lalu push | Tugas/laporan cepat |
-| Website analisis multi-halaman | Render ke `docs/` dengan `render_site()` atau Quarto | Proyek yang lebih rapi |
-| Deploy otomatis setiap ada push | GitHub Actions + GitHub Pages | Workflow yang lebih profesional |
+| *Website* HTML/CSS/JS sederhana | *Publish* dari branch `main` ke `/root` atau `/docs` | Pemula |
+| Laporan `R Markdown` satu halaman | *Render* lokal ke folder `docs/`, lalu push | Tugas/laporan cepat |
+| *Website* analisis multi-halaman | *Render* ke `docs/` dengan `render_site()` atau Quarto | Proyek yang lebih rapi |
+| *Deploy* otomatis setiap ada push | GitHub Actions + GitHub Pages | *Workflow* yang lebih profesional |
 
-### Persiapan Sebelum Deploy
+### Persiapan Sebelum *Deploy*
 
 Sebelum menekan tombol publish, pastikan:
 
 1. Repository sudah ada di GitHub.
 2. Halaman utama akan menjadi `index.html`.
 3. Semua gambar, CSS, dan JavaScript menggunakan **path relatif**, bukan path lokal komputer.
-4. Hasil render sudah dicek dulu di browser lokal.
-5. Kamu konsisten memilih salah satu sumber deploy: `docs/` di branch tertentu atau workflow GitHub Actions.
+4. Hasil *render* sudah dicek dulu di browser lokal.
+5. Kamu konsisten memilih salah satu sumber *deploy*: `docs/` di branch tertentu atau workflow GitHub Actions.
 
 ---
 
-### 11.1 Deploy Website HTML Sederhana
+### 11.1 *Deploy* *Website* HTML Sederhana
 
-Ini pendekatan paling mudah untuk website statis biasa.
+Ini pendekatan paling mudah untuk *website* statis biasa.
 
 **Contoh struktur proyek:**
 
@@ -659,25 +659,25 @@ nama-repo/
 **Langkah-langkah:**
 
 1. Buat atau buka repository di GitHub.
-2. Pastikan ada file `index.html` di root proyek atau di folder `docs/`.
+2. Pastikan ada file `index.html` di root proyek atau di *folder* `docs/`.
 3. Push semua file ke branch utama, biasanya `main`.
 4. Buka **Settings** repository -> **Pages**.
 5. Pada bagian **Build and deployment**, pilih **Deploy from a branch**.
 6. Pilih branch `main`, lalu pilih folder `/(root)` atau `/docs`.
 7. Klik **Save** dan tunggu beberapa menit.
 
-> **Catatan:** GitHub Pages akan mencari `index.html` sebagai halaman awal. Jika nama file utamamu bukan `index.html`, website bisa tampil 404 atau hanya bisa diakses lewat URL file lengkap.
+> **Catatan:** GitHub Pages akan mencari `index.html` sebagai halaman awal. Jika nama file utamamu bukan `index.html`, *output* akan menampilkan 404 atau hanya bisa diakses lewat URL file lengkap.
 
 ---
 
-### 11.2 Deploy R Markdown Secara Manual
+### 11.2 *Deploy* R Markdown Secara Manual
 
 Pendekatan ini sangat cocok untuk tugas analisis data atau laporan yang hanya perlu diperbarui sesekali.
 
 **Alur kerjanya:**
 
 ```text
-analisis.Rmd -> render di lokal -> hasil HTML masuk ke docs/ -> push ke GitHub -> GitHub Pages menayangkan docs/
+analisis.Rmd -> *render* di lokal -> hasil HTML masuk ke docs/ -> push ke GitHub -> GitHub Pages menayangkan docs/
 ```
 
 **Contoh struktur proyek:**
@@ -690,7 +690,7 @@ proyek-analisis/
 `-- docs/
 ```
 
-**Contoh YAML header pada file `.Rmd`:**
+**Contoh YAML *header* pada *file* `.Rmd`:**
 
 ```yaml
 ---
@@ -712,7 +712,7 @@ output:
 - Risiko gambar atau CSS hilang saat dipublish jadi lebih kecil.
 - Sangat cocok untuk laporan satu halaman.
 
-**Render file ke folder `docs/`:**
+***Render file* ke *folder* `docs/`:**
 
 ```r
 rmarkdown::render(
@@ -722,7 +722,7 @@ rmarkdown::render(
 )
 ```
 
-**Push hasil render ke GitHub:**
+**Push hasil *render* ke GitHub:**
 
 ```cmd
 git add analisis.Rmd docs/
@@ -737,24 +737,24 @@ git push origin main
 3. Pilih branch `main` dan folder `/docs`.
 4. Klik **Save**.
 
-Jika semua benar, website akan tayang di URL project site repository-mu.
+Jika semua benar, *website* akan tayang di URL project site repository-mu.
 
 ---
 
-### 11.3 Deploy Otomatis dengan GitHub Actions
+### 11.3 *Deploy* Otomatis dengan GitHub Actions
 
-Jika kamu tidak ingin render manual setiap kali ada perubahan, gunakan **GitHub Actions**. Workflow ini akan:
+Jika kamu tidak ingin *render* manual setiap kali ada perubahan, gunakan **GitHub Actions**. *Workflow* ini akan:
 
 1. mengambil isi repository,
-2. menjalankan proses build atau render,
-3. mengunggah hasil build,
-4. lalu mendeploy hasilnya ke GitHub Pages.
+2. menjalankan proses *build* atau *render*,
+3. mengunggah hasil *build*,
+4. lalu men-*deploy* hasilnya ke GitHub Pages.
 
 Ini lebih rapi untuk proyek yang sering diperbarui atau dikerjakan berulang.
 
-**Contoh workflow untuk `R Markdown`:**
+**Contoh *workflow* untuk `R Markdown`:**
 
-Buat file `.github/workflows/deploy-pages.yml`
+Buat *file* `.github/workflows/deploy-pages.yml`
 
 ```yaml
 name: Build and Deploy GitHub Pages
@@ -820,9 +820,9 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-**Pengaturan penting setelah workflow dibuat:**
+**Pengaturan penting setelah *workflow* dibuat:**
 
-1. Buka **Settings** -> **Pages**.
+1. Buka **Settings**, pilih **Pages**.
 2. Pada **Source**, pilih **GitHub Actions**.
 3. Push perubahan ke branch `main`.
 4. Pantau tab **Actions** sampai workflow selesai.
@@ -831,11 +831,11 @@ jobs:
 
 - Saat laporan sering diperbarui.
 - Saat proyek dikerjakan lebih dari satu orang.
-- Saat kamu ingin proses publish konsisten dan minim langkah manual.
+- Saat kamu ingin proses *publish* konsisten dan minim langkah manual.
 
 ---
 
-### 11.4 Website Multi-Halaman dengan R Markdown atau Quarto
+### 11.4 *Website* Multi-Halaman dengan R Markdown atau Quarto
 
 Kalau proyekmu lebih dari satu halaman, jangan paksa semuanya ke satu file besar. Lebih baik buat website kecil yang terstruktur.
 
@@ -921,48 +921,48 @@ quarto render
 Setelah itu, kamu bisa:
 
 - publish dari folder `docs/`, atau
-- mengganti langkah render di workflow GitHub Actions dengan `quarto render`
+- mengganti langkah render di *workflow* GitHub Actions dengan `quarto render`
 
 ---
 
-### 11.5 Checklist Sebelum Publish
+### 11.5 *Checklist* Sebelum *Publish*
 
-Gunakan checklist ini sebelum deploy:
+Gunakan *checklist* ini sebelum deploy:
 
 ```text
 [ ] File utama bernama index.html
 [ ] Semua aset memakai path relatif
-[ ] Folder output sudah benar (docs/ atau artifact build)
+[ ] *Folder output* sudah benar (docs/ atau artifact build)
 [ ] Tidak ada data sensitif di repository
-[ ] Hasil website/laporan sudah dicek di browser lokal
-[ ] Pengaturan Pages sudah sesuai dengan metode deploy yang dipilih
+[ ] Hasil *website*/laporan sudah dicek di browser lokal
+[ ] Pengaturan *Pages* sudah sesuai dengan metode *deploy* yang dipilih
 ```
 
 ### 11.6 Troubleshooting Umum
 
 | Masalah | Penyebab yang Sering Terjadi | Solusi |
 |---|---|---|
-| Halaman 404 | Tidak ada `index.html` di lokasi publish | Pastikan file output bernama `index.html` |
-| Gambar/CSS tidak muncul | Path masih absolut atau file aset tidak ikut ter-push | Gunakan path relatif dan cek folder output |
-| Situs tidak berubah | Belum selesai build, cache browser, atau source salah | Tunggu beberapa menit, refresh keras, cek Settings -> Pages |
-| Workflow gagal | Package/dependency belum lengkap | Tambahkan dependency yang diperlukan di workflow |
-| File `docs/` tidak terbaca | Folder output salah atau belum dibuat | Pastikan render menghasilkan file ke `docs/` |
+| Halaman 404 | Tidak ada `index.html` di lokasi *publish* | Pastikan *file output* bernama `index.html` |
+| Gambar/CSS tidak muncul | *Path* masih absolut atau file aset tidak ikut ter-*push* | Gunakan *path* relatif dan cek folder output |
+| Situs tidak berubah | Belum selesai *build*, *cache browser*, atau *source* salah | Tunggu beberapa menit, *refresh* keras, cek Settings -> Pages |
+| Workflow gagal | *Package*/*dependency* belum lengkap | Tambahkan *dependency* yang diperlukan di *workflow* |
+| File `docs/` tidak terbaca | *Folder output* salah atau belum dibuat | Pastikan *render* menghasilkan *file* ke `docs/` |
 
 ### 11.7 Alur Praktis yang Disarankan
 
 Untuk pemula, urutan kerja yang paling aman biasanya seperti ini:
 
-1. Kerjakan laporan atau website di lokal.
-2. Render hasil ke `docs/`.
+1. Kerjakan laporan atau *website* di lokal.
+2. *Render* hasil ke `docs/`.
 3. Cek hasilnya di browser lokal.
-4. Commit dan push ke GitHub.
+4. *Commit* dan* push* ke GitHub.
 5. Aktifkan GitHub Pages dari `/docs`, atau gunakan GitHub Actions jika ingin otomatis.
 
 Dengan alur ini, Git berfungsi sebagai pencatat versi, sedangkan GitHub Pages menjadi media publikasinya.
 
 ---
 
-## 12. Tips, Trik, dan Best Practice
+## 12. Tips, Trik, dan Percobaan
 
 ### File `.gitignore`
 
@@ -1009,9 +1009,9 @@ secrets.json
 .env.local
 ```
 
-> **Aturan emas:** Jangan pernah commit password, API key, token, atau file credential ke Git.
+> **Catatan:** Jangan pernah *commit password*, API key, token, atau file credential ke Git.
 
-### Git Aliases
+### Git *Aliases*
 
 Alias membantu mempercepat perintah yang sering dipakai:
 
@@ -1026,9 +1026,9 @@ git cm "docs: rapikan struktur modul"
 git lg
 ```
 
-### Conventional Commits
+### *Conventional Commits*
 
-Format commit yang rapi akan sangat membantu saat membaca riwayat perubahan.
+Format *commit* yang rapi akan sangat membantu saat membaca riwayat perubahan.
 
 ```text
 <type>: <description>
@@ -1071,14 +1071,14 @@ git remote -v
 git push origin main
 ```
 
-### Checklist Sebelum Push
+### *Checklist* Sebelum *Push*
 
 ```text
-[ ] File sensitif sudah aman
+[ ] *File* sensitif sudah aman
 [ ] .gitignore sudah benar
-[ ] Pesan commit jelas dan deskriptif
+[ ] Pesan *commit* jelas dan deskriptif
 [ ] Hasil akhir sudah dicek
-[ ] File yang di-push memang file yang dibutuhkan
+[ ] *File* yang di-*push* memang *file* yang dibutuhkan
 ```
 
 ---
@@ -1131,12 +1131,12 @@ git push origin main
 
 ---
 
-> **Catatan Akhir**
+> **Penutup**
 >
-> Git adalah skill yang paling cepat dikuasai lewat praktik langsung. Mulailah dari workflow sederhana: edit file, commit, push, lalu publish hasilnya. Setelah itu, barulah perlahan naik ke workflow yang lebih otomatis.
+> Git adalah *skill* yang paling cepat dikuasai melalui praktik langsung yang dapat dilakukan mulai dari *workflow* sederhana, seperti: edit *file*, *commit*, *push*, lalu *publish* hasilnya. Setelah itu, secara perlahan naik ke *workflow* yang lebih otomatis.
 >
 > *"Commit early, commit often."* - Git mantra
 
 ---
 
-*Modul ini dibuat sebagai panduan belajar Git dari nol hingga mahir. Versi terakhir diperbarui: April 2026.*
+*Modul ini dibuat sebagai panduan belajar Git dari nol. Versi terakhir diperbarui: April 2026.*
