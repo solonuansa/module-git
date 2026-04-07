@@ -52,7 +52,62 @@ li {
 
 ol,
 ul {
+  margin: 0.45em 0 0.9em;
   padding-left: 1.35em;
+}
+
+ol > li,
+ul > li {
+  margin-bottom: 0.5em;
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+
+ol.step-list {
+  margin: 0.6em 0 1.05em;
+  padding-left: 1.5em;
+}
+
+ol.step-list > li {
+  margin-bottom: 0.75em;
+}
+
+.step-card {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+
+.step-card > :first-child {
+  margin-top: 0;
+}
+
+.step-card > :last-child {
+  margin-bottom: 0;
+}
+
+.step-card p {
+  margin: 0 0 0.42em;
+}
+
+.step-figure {
+  margin: 0.35em 0 0.85em;
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+
+.step-card img {
+  max-width: 86%;
+  max-height: 142mm;
+  margin: 0 auto;
+}
+
+li > p,
+li > pre,
+li img {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+  break-before: avoid-page;
+  page-break-before: avoid;
 }
 
 #daftar-isi {
@@ -206,6 +261,18 @@ table,
 pre,
 blockquote {
   break-inside: avoid-page;
+}
+
+img {
+  display: block;
+  max-width: 88%;
+  max-height: 175mm;
+  margin: 0.55em auto 0.9em;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+  object-fit: contain;
 }
 
 hr {

@@ -20,26 +20,30 @@ def prepare_markdown(source: str) -> str:
     output: list[str] = []
     in_fence = False
     current_lang = ""
+    current_indent = ""
 
     for line in lines:
         stripped = line.strip()
+        leading = line[: len(line) - len(line.lstrip(" "))]
 
         if stripped.startswith("```"):
             if not in_fence:
+                current_indent = leading
                 current_lang = stripped[3:].strip().lower()
                 label_info = LABELS.get(current_lang)
                 if label_info:
                     label, render_lang = label_info
-                    output.append(f'<div class="code-caption">{label}</div>')
+                    output.append(f'{current_indent}<div class="code-caption">{label}</div>')
                     output.append("")
-                    output.append(f"```{render_lang}")
+                    output.append(f"{current_indent}```{render_lang}")
                 else:
                     output.append(line)
                 in_fence = True
             else:
-                output.append("```")
+                output.append(f"{current_indent}```")
                 in_fence = False
                 current_lang = ""
+                current_indent = ""
             continue
 
         output.append(line)

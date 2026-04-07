@@ -1,56 +1,28 @@
-# Build PDF Modul Git
+# Modul Git Repository
 
-Folder ini berisi modul Git berbasis Markdown yang diekspor ke PDF dengan daftar isi klikable, nomor halaman otomatis, dan styling yang lebih rapi untuk blok command.
+Repository ini difokuskan untuk menyimpan materi utama modul Git dan tutorial instalasi dalam format Markdown beserta hasil PDF-nya.
 
-## File Penting
+## Struktur Utama
 
 - `draft_Module_Git.md`
-  Sumber utama modul yang kamu edit.
-- `export-pdf.ps1`
-  Perintah utama untuk membangun ulang PDF.
-- `md-to-pdf.config.js`
-  Konfigurasi `md-to-pdf`, termasuk footer nomor halaman.
-- `pdf-style.css`
-  Styling PDF, termasuk tampilan daftar isi dan label kecil untuk blok command seperti `CMD`, `Bash`, `R`, dan `YAML`.
-- `prepare_markdown_for_pdf.py`
-  Menyiapkan versi markdown khusus untuk PDF, termasuk caption kecil di atas blok command agar command lebih mudah dibaca dan disalin.
-- `update_toc_pages.py`
-  Menyinkronkan nomor halaman daftar isi berdasarkan hasil PDF terbaru.
-- `fix_pdf_links.py`
-  Memperbaiki link internal PDF dan menambahkan bookmark/sidebar outline.
+  Sumber utama modul Git.
+- `draft_Module_Git.pdf`
+  Hasil PDF dari modul utama.
+- `tutorial-instalasi-git.md`
+  Tutorial instalasi Git untuk Windows dan macOS.
+- `tutorial-instalasi-git.pdf`
+  Hasil PDF dari tutorial instalasi.
+- `images/`
+  Seluruh aset gambar yang dipakai oleh dokumen.
+- `tools/pdf/`
+  Seluruh alat, skrip, konfigurasi, dan panduan build PDF.
+- `archive/`
+  File lama atau artefak referensi yang tidak perlu berada di root repo.
 
-## Cara Build
+## Cara Pakai Singkat
 
-Jalankan dari folder ini:
+1. Edit file Markdown utama di root repo.
+2. Jalankan build PDF memakai alat di `tools/pdf/`.
+3. Simpan hasil akhir PDF tetap berdampingan dengan file Markdown di root.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\export-pdf.ps1
-```
-
-Kalau file input berbeda, gunakan:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\export-pdf.ps1 -InputFile "nama_file.md"
-```
-
-## Yang Dilakukan Script Build
-
-1. Render Markdown ke PDF dengan `md-to-pdf`.
-2. Siapkan versi markdown sementara khusus PDF.
-3. Baca posisi halaman tiap bab dari PDF hasil render.
-4. Perbarui bagian `Daftar Isi` di markdown secara otomatis.
-5. Render ulang sampai nomor halaman daftar isi stabil.
-6. Perbaiki link internal PDF agar lebih kompatibel di viewer PDF.
-7. Tambahkan bookmark PDF untuk heading utama.
-
-## Kebutuhan
-
-- PowerShell
-- Node.js dan `npx`
-- Python 3
-- Paket Python `pypdf`
-
-## Catatan
-
-- Bagian `Daftar Isi` di `draft_Module_Git.md` memakai marker `<!-- AUTO-TOC:START -->` dan `<!-- AUTO-TOC:END -->`. Jangan hapus marker ini kalau ingin sinkronisasi nomor halaman tetap otomatis.
-- File sementara build akan dibersihkan otomatis, sehingga hasil akhirnya cukup satu file PDF utama.
+Panduan lengkap build PDF ada di [tools/pdf/README.md](tools/pdf/README.md).
