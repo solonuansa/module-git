@@ -1,8 +1,11 @@
 const path = require("path");
 
+const toolDir = __dirname;
+const repoRoot = path.resolve(toolDir, "..", "..");
+
 module.exports = {
-  basedir: __dirname,
-  stylesheet: [path.join(__dirname, "pdf-style.css")],
+  basedir: repoRoot,
+  stylesheet: [path.join(toolDir, "pdf-style.css")],
   pdf_options: {
     format: "A4",
     margin: "18mm 14mm 22mm 16mm",

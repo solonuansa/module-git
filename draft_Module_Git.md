@@ -5,7 +5,7 @@
 ## Daftar Isi
 
 <!-- AUTO-TOC:START -->
-[Apa Itu Version Control?](#1-apa-itu-version-control) (hal. 1)  
+[Apa Itu *Version Control*?](#1-apa-itu-version-control) (hal. 1)  
 [Mengenal Git](#2-mengenal-git) (hal. 2)  
 [Membuat Akun GitHub](#3-membuat-akun-github) (hal. 3)  
 [GitHub Student Developer Pack](#4-github-student-developer-pack) (hal. 4)  
@@ -13,11 +13,11 @@
 [Konfigurasi Awal Git](#6-konfigurasi-awal-git) (hal. 6)  
 [Konsep Dasar Git](#7-konsep-dasar-git) (hal. 8)  
 [Perintah Git Dasar](#8-perintah-git-dasar) (hal. 9)  
-[Bekerja dengan Remote Repository](#9-bekerja-dengan-remote-repository) (hal. 11)  
-[Melihat Riwayat dan Membatalkan Perubahan](#10-melihat-riwayat-dan-membatalkan-perubahan) (hal. 13)  
+[Bekerja dengan Remote Repository](#9-bekerja-dengan-remote-repository) (hal. 12)  
+[Melihat Riwayat dan Membatalkan Perubahan](#10-melihat-riwayat-dan-membatalkan-perubahan) (hal. 14)  
 [Deployment dengan GitHub Pages](#11-deployment-dengan-github-pages) (hal. 16)  
-[Tips, Trik, dan Best Practice](#12-tips-trik-dan-best-practice) (hal. 26)  
-[Referensi dan Sumber Belajar Lanjutan](#13-referensi-dan-sumber-belajar-lanjutan) (hal. 29)  
+[Tips, Trik, dan Best Practice](#12-tips-trik-dan-best-practice) (hal. 21)  
+[Referensi dan Sumber Belajar Lanjutan](#13-referensi-dan-sumber-belajar-lanjutan) (hal. 24)  
 <!-- AUTO-TOC:END -->
 
 ---
@@ -622,10 +622,8 @@ Jenis GitHub Pages yang paling umum:
 
 | Kebutuhan | Pendekatan | Cocok Untuk |
 |---|---|---|
-| *Website* HTML/CSS/JS sederhana | *Publish* dari branch `main` ke `/root` atau `/docs` | Pemula |
-| Laporan `R Markdown` satu halaman | *Render* lokal ke folder `docs/`, lalu push | Tugas/laporan cepat |
-| *Website* analisis multi-halaman | *Render* ke `docs/` dengan `render_site()` atau Quarto | Proyek yang lebih rapi |
-| *Deploy* otomatis setiap ada push | GitHub Actions + GitHub Pages | *Workflow* yang lebih profesional |
+| Website HTML/CSS/JS sederhana | Publish dari branch `main` ke `/root` atau `/docs` | Pemula |
+| Laporan `R Markdown` satu halaman | Render lokal ke folder `docs/`, lalu push | Tugas/laporan cepat |
 
 ### Persiapan Sebelum *Deploy*
 
@@ -634,8 +632,8 @@ Sebelum menekan tombol publish, pastikan:
 1. Repository sudah ada di GitHub.
 2. Halaman utama akan menjadi `index.html`.
 3. Semua gambar, CSS, dan JavaScript menggunakan **path relatif**, bukan path lokal komputer.
-4. Hasil *render* sudah dicek dulu di browser lokal.
-5. Kamu konsisten memilih salah satu sumber *deploy*: `docs/` di branch tertentu atau workflow GitHub Actions.
+4. Hasil render sudah dicek dulu di browser lokal.
+5. Folder publish yang digunakan sudah jelas dan konsisten, misalnya `docs/`.
 
 ---
 
@@ -739,222 +737,37 @@ Jika semua benar, *website* akan tayang di URL project site repository-mu.
 
 ---
 
-### 11.3 *Deploy* Otomatis dengan GitHub Actions
-
-Jika kamu tidak ingin *render* manual setiap kali ada perubahan, gunakan **GitHub Actions**. *Workflow* ini akan:
-
-1. mengambil isi repository,
-2. menjalankan proses *build* atau *render*,
-3. mengunggah hasil *build*,
-4. lalu men-*deploy* hasilnya ke GitHub Pages.
-
-Ini lebih rapi untuk proyek yang sering diperbarui atau dikerjakan berulang.
-
-**Contoh *workflow* untuk `R Markdown`:**
-
-Buat *file* `.github/workflows/deploy-pages.yml`
-
-```yaml
-name: Build and Deploy GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Setup R
-        uses: r-lib/actions/setup-r@v2
-
-      - name: Setup Pandoc
-        uses: r-lib/actions/setup-pandoc@v2
-
-      - name: Install R packages
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::rmarkdown
-            any::knitr
-
-      - name: Render R Markdown
-        run: |
-          mkdir -p docs
-          Rscript -e "rmarkdown::render('analisis.Rmd', output_file='index.html', output_dir='docs')"
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: ./docs
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-```
-
-**Pengaturan penting setelah *workflow* dibuat:**
-
-1. Buka **Settings**, pilih **Pages**.
-2. Pada **Source**, pilih **GitHub Actions**.
-3. Push perubahan ke branch `main`.
-4. Pantau tab **Actions** sampai workflow selesai.
-
-**Kapan pendekatan otomatis lebih baik?**
-
-- Saat laporan sering diperbarui.
-- Saat proyek dikerjakan lebih dari satu orang.
-- Saat kamu ingin proses *publish* konsisten dan minim langkah manual.
-
----
-
-### 11.4 *Website* Multi-Halaman dengan R Markdown atau Quarto
-
-Kalau proyekmu lebih dari satu halaman, jangan paksa semuanya ke satu file besar. Lebih baik buat website kecil yang terstruktur.
-
-#### Opsi A: `rmarkdown::render_site()`
-
-Struktur proyek:
-
-```text
-proyek-website/
-|-- _site.yml
-|-- index.Rmd
-|-- eda.Rmd
-|-- modeling.Rmd
-`-- kesimpulan.Rmd
-```
-
-Contoh file `_site.yml`:
-
-```yaml
-name: "Analisis Data"
-output_dir: docs
-navbar:
-  title: "Proyek Analisis"
-  left:
-    - text: "Beranda"
-      href: index.html
-    - text: "EDA"
-      href: eda.html
-    - text: "Modeling"
-      href: modeling.html
-    - text: "Kesimpulan"
-      href: kesimpulan.html
-
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    self_contained: false
-```
-
-Render seluruh situs:
-
-```r
-rmarkdown::render_site()
-```
-
-> **Catatan:** Jika `self_contained: false`, pastikan seluruh file pendukung hasil render ikut ter-push ke `docs/`.
-
-#### Opsi B: Quarto
-
-**Quarto** adalah pilihan modern untuk laporan dan website data. Ia cocok untuk R, Python, dan kombinasi keduanya.
-
-Contoh file `_quarto.yml`:
-
-```yaml
-project:
-  type: website
-  output-dir: docs
-
-website:
-  title: "Analisis Klaim Asuransi"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Beranda
-      - href: eda.qmd
-        text: EDA
-      - href: modeling.qmd
-        text: Modeling
-
-format:
-  html:
-    toc: true
-    code-fold: true
-```
-
-Render website Quarto:
-
-```cmd
-quarto render
-```
-
-Setelah itu, kamu bisa:
-
-- publish dari folder `docs/`, atau
-- mengganti langkah render di *workflow* GitHub Actions dengan `quarto render`
-
----
-
-### 11.5 *Checklist* Sebelum *Publish*
+### 11.3 Checklist Sebelum Publish
 
 Gunakan *checklist* ini sebelum deploy:
 
 ```text
 [ ] File utama bernama index.html
 [ ] Semua aset memakai path relatif
-[ ] Folder output sudah benar (docs/ atau artifact build)
+[ ] Folder output sudah benar (misalnya docs/)
 [ ] Tidak ada data sensitif di repository
 [ ] Hasil website/laporan sudah dicek di browser lokal
-[ ] Pengaturan Pages sudah sesuai dengan metode deploy yang dipilih
+[ ] Pengaturan Pages sudah mengarah ke branch dan folder yang benar
 ```
 
-### 11.6 Troubleshooting Umum
+### 11.4 Troubleshooting Umum
 
 | Masalah | Penyebab yang Sering Terjadi | Solusi |
 |---|---|---|
-| Halaman 404 | Tidak ada `index.html` di lokasi *publish* | Pastikan *file output* bernama `index.html` |
-| Gambar/CSS tidak muncul | *Path* masih absolut atau file aset tidak ikut ter-*push* | Gunakan *path* relatif dan cek folder output |
-| Situs tidak berubah | Belum selesai *build*, *cache browser*, atau *source* salah | Tunggu beberapa menit, *refresh* keras, cek Settings -> Pages |
-| Workflow gagal | *Package*/*dependency* belum lengkap | Tambahkan *dependency* yang diperlukan di *workflow* |
-| File `docs/` tidak terbaca | *Folder output* salah atau belum dibuat | Pastikan *render* menghasilkan *file* ke `docs/` |
+| Halaman 404 | Tidak ada `index.html` di lokasi publish | Pastikan file output bernama `index.html` |
+| Gambar/CSS tidak muncul | Path masih absolut atau file aset tidak ikut ter-push | Gunakan path relatif dan cek folder output |
+| Situs tidak berubah | Belum selesai build, cache browser, atau source salah | Tunggu beberapa menit, refresh keras, cek Settings -> Pages |
+| File `docs/` tidak terbaca | Folder output salah atau belum dibuat | Pastikan render menghasilkan file ke `docs/` |
 
-### 11.7 Alur Praktis yang Disarankan
+### 11.5 Alur Praktis yang Disarankan
 
 Untuk pemula, urutan kerja yang paling aman biasanya seperti ini:
 
 1. Kerjakan laporan atau *website* di lokal.
 2. *Render* hasil ke `docs/`.
 3. Cek hasilnya di browser lokal.
-4. *Commit* dan* push* ke GitHub.
-5. Aktifkan GitHub Pages dari `/docs`, atau gunakan GitHub Actions jika ingin otomatis.
+4. Commit dan push ke GitHub.
+5. Aktifkan GitHub Pages dari branch dan folder yang sesuai, misalnya `/docs`.
 
 Dengan alur ini, Git berfungsi sebagai pencatat versi, sedangkan GitHub Pages menjadi media publikasinya.
 
@@ -1089,7 +902,6 @@ git push origin main
 - **Pro Git Book** - [git-scm.com/book](https://git-scm.com/book/en/v2)
 - **GitHub Docs** - [docs.github.com](https://docs.github.com)
 - **GitHub Pages Docs** - [docs.github.com/pages](https://docs.github.com/en/pages)
-- **Quarto Docs** - [quarto.org/docs](https://quarto.org/docs)
 
 ### Latihan dan Pembelajaran Interaktif
 
@@ -1121,7 +933,6 @@ git push -u origin main
 git pull origin main
 
 :: DEPLOYMENT
-quarto render
 git add docs/
 git commit -m "docs: update website"
 git push origin main
@@ -1131,7 +942,7 @@ git push origin main
 
 > **Penutup**
 >
-> Git adalah *skill* yang paling cepat dikuasai melalui praktik langsung yang dapat dilakukan mulai dari *workflow* sederhana, seperti: edit *file*, *commit*, *push*, lalu *publish* hasilnya. Setelah itu, secara perlahan naik ke *workflow* yang lebih otomatis.
+> Git adalah skill yang paling cepat dikuasai lewat praktik langsung. Mulailah dari workflow sederhana: edit file, commit, push, lalu publish hasilnya. Setelah itu, barulah perlahan naik ke proyek yang lebih rapi dan terstruktur.
 >
 > *"Commit early, commit often."* - Git mantra
 

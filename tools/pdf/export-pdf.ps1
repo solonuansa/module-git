@@ -4,15 +4,25 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$inputPath = Join-Path $root $InputFile
-$preparedInputPath = Join-Path $root ([System.IO.Path]::GetFileNameWithoutExtension($InputFile) + ".pdfbuild.md")
-$preparedPdfPath = Join-Path $root ([System.IO.Path]::GetFileNameWithoutExtension($InputFile) + ".pdfbuild.pdf")
-$legacyBackupPath = Join-Path $root ([System.IO.Path]::GetFileNameWithoutExtension($InputFile) + ".prelinkfix.pdf")
-$configPath = Join-Path $root "md-to-pdf.config.js"
-$prepareScriptPath = Join-Path $root "prepare_markdown_for_pdf.py"
-$tocScriptPath = Join-Path $root "update_toc_pages.py"
-$fixScriptPath = Join-Path $root "fix_pdf_links.py"
+$toolDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$repoRoot = (Resolve-Path (Join-Path $toolDir "..\..")).Path
+
+if ([System.IO.Path]::IsPathRooted($InputFile)) {
+    $inputPath = [System.IO.Path]::GetFullPath($InputFile)
+}
+else {
+    $inputPath = Join-Path $repoRoot $InputFile
+}
+
+$inputDirectory = Split-Path -Parent $inputPath
+$inputStem = [System.IO.Path]::GetFileNameWithoutExtension($inputPath)
+$preparedInputPath = Join-Path $inputDirectory "$inputStem.pdfbuild.md"
+$preparedPdfPath = Join-Path $inputDirectory "$inputStem.pdfbuild.pdf"
+$legacyBackupPath = Join-Path $inputDirectory "$inputStem.prelinkfix.pdf"
+$configPath = Join-Path $toolDir "md-to-pdf.config.js"
+$prepareScriptPath = Join-Path $toolDir "prepare_markdown_for_pdf.py"
+$tocScriptPath = Join-Path $toolDir "update_toc_pages.py"
+$fixScriptPath = Join-Path $toolDir "fix_pdf_links.py"
 
 if (-not (Test-Path $inputPath)) {
     throw "File markdown tidak ditemukan: $inputPath"
@@ -34,7 +44,7 @@ if (-not (Test-Path $fixScriptPath)) {
     throw "Script perbaikan PDF tidak ditemukan: $fixScriptPath"
 }
 
-Push-Location $root
+Push-Location $repoRoot
 try {
     $outputPath = [System.IO.Path]::ChangeExtension($inputPath, ".pdf")
     Remove-Item $preparedInputPath, $preparedPdfPath, $legacyBackupPath -ErrorAction SilentlyContinue

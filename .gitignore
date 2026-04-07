@@ -1,2 +1,15 @@
-# Python cache and virtual environments
+# Python cache
 __pycache__/
+tools/pdf/__pycache__/
+
+# Temporary PDF build artifacts
+*.pdfbuild.md
+*.pdfbuild.pdf
+*.prelinkfix.pdf
+*.tmp.pdf
+
+# Local inspection / comparison artifacts
+*.inspect.md
+*.inspect.html
+*.rendered.html
+*.baseline.pdf
