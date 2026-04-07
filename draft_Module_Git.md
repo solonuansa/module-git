@@ -60,14 +60,12 @@ Inilah masalah yang bisa diselesaikan oleh version control dengan hanya memiliki
 ### Mengapa Git Digunakan?
 
 - **Cepat**, karena sebagian besar operasi berjalan secara lokal
-- **Aman**, setiap data di-hash menggunakan SHA-1
-- **Branching yang mudah**, membuat dan menggabungkan branch sangat ringan
+- **Aman**, setiap data di-hash menggunakan (*Secure Hash Algorithm 1*) SHA-1
+- **Branching yang mudah**, membuat dan menggabungkan *branch* sangat ringan
 - **Terdistribusi**, setiap developer punya salinan penuh repository
 - **Gratis dan Open Source**, dapat diakses semua orang
 
 ### Git vs GitHub
-
-> **Git ≠ GitHub!** Ini perbedaan yang sering membingungkan pemula.
 
 | | **Git** | **GitHub** |
 |---|---|---|
@@ -76,7 +74,7 @@ Inilah masalah yang bisa diselesaikan oleh version control dengan hanya memiliki
 | **Fungsi** | Melacak perubahan kode | Menyimpan & berkolaborasi online |
 | **Alternatif** | Mercurial, SVN | GitLab, Bitbucket |
 
-Analoginya: **Git** = Microsoft Word, **GitHub** = Google Drive.
+Perumpamaannya: **Git** = Microsoft Word, **GitHub** = Google Drive.
 
 ---
 
@@ -101,6 +99,7 @@ Analoginya: **Git** = Microsoft Word, **GitHub** = Google Drive.
 - Hindari angka atau karakter acak
 - Konsisten dengan *platform* lain (LinkedIn, dll)
 - Contoh bagus: `rifkimart`, `rifkidev`, `rifki-martleo`
+- Jangan gunakan nama seperti: `rifkigaming`, `rifkiganteng123`, `hajirifki969`
 
 ### Personalisasi Profil
 
@@ -109,7 +108,7 @@ Setelah akun dibuat, lengkapi profilmu:
 - **Bio**, masukkan deskripsi singkat (misal: "Statistics Student | Data Science Enthusiast")
 - **Location**, masukkan kota/negara
 - **Website**, masukkan *link* portfolio jika ada
-- **README Profile**, masukkan *file* khusus yang tampil di halaman profil GitHub
+- **README Profile**, masukkan *file* khusus bertipe `.md` yang tampil di halaman profil GitHub
 
 ---
 
@@ -141,7 +140,6 @@ Setelah akun dibuat, lengkapi profilmu:
 | **Namecheap** | Domain `.me` gratis 1 tahun + SSL | ~$13/tahun |
 | **Microsoft Azure** | $100 Azure credits | $100 |
 | **DigitalOcean** | Cloud server credits | $200 |
-| **Canva Pro** | Design tool premium | Gratis |
 | **DataCamp** | Kursus data science | Gratis 3 bulan |
 | **MongoDB Atlas** | Cloud database | Credits gratis |
 
@@ -154,7 +152,7 @@ Setelah akun dibuat, lengkapi profilmu:
 **Cara 1: Download Installer (Direkomendasikan)**
 
 1. Buka **[git-scm.com/download/win](https://git-scm.com/download/win)**
-2. Download installer terbaru (64-bit)
+2. Download installer terbaru (64-bit) (atau sesuaikan dengan device masing-masing)
 3. Jalankan installer dan ikuti wizard:
    - Biarkan semua pengaturan default
    - Pada bagian **"Adjusting your PATH environment"**, pilih **"Git from the command line and also from 3rd-party software"**
@@ -546,13 +544,13 @@ Cara membatalkan perubahan tergantung pada posisi perubahan tersebut: masih di w
 ```cmd
 :: SEBELUM STAGING
 
-:: Batalkan perubahan pada *file* dan kembalikan ke versi commit terakhir
+:: Batalkan perubahan pada file dan kembalikan ke versi commit terakhir
 git restore nama-file.txt
 
 
-:: LANGKAH SETELAH *STAGING*, SEBELUM *COMMIT*
+:: LANGKAH SETELAH STAGING, SEBELUM COMMIT
 
-:: Keluarkan file dari *staging*, tetapi perubahan file tetap dipertahankan
+:: Keluarkan file dari staging, tetapi perubahan file tetap dipertahankan
 git restore --staged nama-file.txt
 
 
@@ -932,10 +930,10 @@ Gunakan *checklist* ini sebelum deploy:
 ```text
 [ ] File utama bernama index.html
 [ ] Semua aset memakai path relatif
-[ ] *Folder output* sudah benar (docs/ atau artifact build)
+[ ] Folder output sudah benar (docs/ atau artifact build)
 [ ] Tidak ada data sensitif di repository
-[ ] Hasil *website*/laporan sudah dicek di browser lokal
-[ ] Pengaturan *Pages* sudah sesuai dengan metode *deploy* yang dipilih
+[ ] Hasil website/laporan sudah dicek di browser lokal
+[ ] Pengaturan Pages sudah sesuai dengan metode deploy yang dipilih
 ```
 
 ### 11.6 Troubleshooting Umum
@@ -1074,11 +1072,11 @@ git push origin main
 ### *Checklist* Sebelum *Push*
 
 ```text
-[ ] *File* sensitif sudah aman
+[ ] File sensitif sudah aman
 [ ] .gitignore sudah benar
-[ ] Pesan *commit* jelas dan deskriptif
+[ ] Pesan commit jelas dan deskriptif
 [ ] Hasil akhir sudah dicek
-[ ] *File* yang di-*push* memang *file* yang dibutuhkan
+[ ] File yang di-push memang file yang dibutuhkan
 ```
 
 ---
